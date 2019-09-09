@@ -6,6 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng-zorro-account-book';
   isCollapsed = false;
+  menu = [{ label: '账单', icon: 'book', link: '/record' }];
 }
