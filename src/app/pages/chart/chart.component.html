@@ -1,1 +1,26 @@
-<p>chart works!</p>
+<div class="container-page">
+  <div nz-row>
+    <div nz-col nzSpan="12">
+      <nz-radio-group [(ngModel)]="rangeValue" (ngModelChange)="seasonChange()">
+        <label nz-radio-button [nzValue]="item.value" *ngFor="let item of range">
+          <span>{{ item.label }}</span>
+        </label>
+      </nz-radio-group>
+    </div>
+  </div>
+
+  <div nz-row>
+    <div nz-col nzSpan="12">
+      <div echarts [options]="payPipeOption" class="chart"></div>
+    </div>
+    <div nz-col nzSpan="12">
+      <div echarts [options]="incomePipeOption" class="chart"></div>
+    </div>
+    <div nz-col nzSpan="12">
+      <div echarts [options]="payLineOption" class="chart"></div>
+    </div>
+    <div nz-col nzSpan="12">
+      <div echarts [options]="incomeLineOption" class="chart"></div>
+    </div>
+  </div>
+</div>

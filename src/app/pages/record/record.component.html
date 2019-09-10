@@ -1,55 +1,57 @@
-<div nz-row>
-  <div nz-col nzSpan="12">收入</div>
-  <div nz-col nzSpan="12">支出</div>
-</div>
-
-<div nz-row>
-  <div nz-col nzSpan="8">
-    <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
-      <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your username!">
-          <nz-input-group nzPrefixIcon="user">
-            <input formControlName="userName" nz-input placeholder="Username" />
-          </nz-input-group>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-control nzErrorTip="Please input your Password!">
-          <nz-input-group nzPrefixIcon="lock">
-            <input formControlName="password" nz-input type="password" placeholder="Password" />
-          </nz-input-group>
-        </nz-form-control>
-      </nz-form-item>
-      <nz-form-item>
-        <nz-form-control>
-          <button nz-button nzType="primary" [disabled]="!validateForm.valid">Log in</button>
-        </nz-form-control>
-      </nz-form-item>
-    </form>
+<div class="container-page">
+  <div nz-row>
+    <div nz-col nzSpan="12">收入</div>
+    <div nz-col nzSpan="12">支出</div>
   </div>
 
-  <div nz-col nzSpan="16">
-    <nz-table #basicTable [nzData]="listOfData" nzBordered>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Age</th>
-          <th>Address</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let data of basicTable.data">
-          <td>{{ data.name }}</td>
-          <td>{{ data.age }}</td>
-          <td>{{ data.address }}</td>
-          <td>
-            <a>Action 一 {{ data.name }}</a>
-            <nz-divider nzType="vertical"></nz-divider>
-            <a>Delete</a>
-          </td>
-        </tr>
-      </tbody>
-    </nz-table>
+  <div nz-row>
+    <div nz-col nzSpan="8">
+      <form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your username!">
+            <nz-input-group nzPrefixIcon="user">
+              <input formControlName="userName" nz-input placeholder="Username" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control nzErrorTip="Please input your Password!">
+            <nz-input-group nzPrefixIcon="lock">
+              <input formControlName="password" nz-input type="password" placeholder="Password" />
+            </nz-input-group>
+          </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+          <nz-form-control>
+            <button nz-button nzType="primary" [disabled]="!validateForm.valid">Log in</button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </div>
+
+    <div nz-col nzSpan="16">
+      <nz-table #basicTable [nzData]="listOfData" nzBordered>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of basicTable.data">
+            <td>{{ data.name }}</td>
+            <td>{{ data.age }}</td>
+            <td>{{ data.address }}</td>
+            <td>
+              <a>Action 一 {{ data.name }}</a>
+              <nz-divider nzType="vertical"></nz-divider>
+              <a>Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </nz-table>
+    </div>
   </div>
 </div>

@@ -18,15 +18,15 @@
   <nz-layout>
     <nz-header>
       <div class="app-header">
-        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+        <!-- <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
-        </span>
+        </span> -->
       </div>
     </nz-header>
 
     <nz-content>
-      <div class="inner-content">
-        <router-outlet></router-outlet>
+      <div class="inner-content" [@routeAnimations]="prepareRoute(outlet)">
+        <router-outlet #outlet="outlet"></router-outlet>
       </div>
     </nz-content>
   </nz-layout>

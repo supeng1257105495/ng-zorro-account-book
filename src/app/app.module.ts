@@ -13,6 +13,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { IconsProviderModule } from './icons-provider.module';
 registerLocaleData(zh);
 
+// 外部引入模块
+import { NgxEchartsModule } from 'ngx-echarts';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -24,7 +27,9 @@ registerLocaleData(zh);
     // 导入 ng-zorro-antd 模块
     NgZorroAntdModule,
     AppRoutingModule,
-    IconsProviderModule
+    IconsProviderModule,
+    // 外部引入模块
+    NgxEchartsModule
   ],
   bootstrap: [AppComponent],
   // 配置 ng-zorro-antd 国际化（文案 及 日期）

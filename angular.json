@@ -29,7 +29,7 @@
               { "glob": "**/*", "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/", "output": "/assets/" }
             ],
             "styles": ["src/styles.css", "node_modules/ng-zorro-antd/ng-zorro-antd.min.css", "src/theme.less"],
-            "scripts": []
+            "scripts": ["node_modules/echarts/dist/echarts.min.js"]
           },
           "configurations": {
             "production": {
@@ -89,7 +89,7 @@
             "karmaConfig": "karma.conf.js",
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.css", "node_modules/ng-zorro-antd/ng-zorro-antd.min.css", "src/theme.less"],
-            "scripts": []
+            "scripts": ["node_modules/echarts/dist/echarts.min.js"]
           }
         },
         "lint": {
