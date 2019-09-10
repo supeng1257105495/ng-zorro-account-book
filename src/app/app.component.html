@@ -3,12 +3,12 @@
     <div class="sidebar-logo">
       <a href="https://ng.ant.design/" target="_blank">
         <img src="https://ng.ant.design/assets/img/logo.svg" alt="logo" />
-        <h1>Ant Design Of Angular</h1>
+        <h1>{{ 'app_title' | translate }}</h1>
       </a>
     </div>
 
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-menu-item *ngFor="let item of menu" [routerLink]="item.link">
+      <li nz-menu-item *ngFor="let item of menuList" [routerLink]="item.link">
         <i nz-icon [nzType]="item.icon" nzTheme="outline"></i>
         <span>{{ item.label }}</span>
       </li>
@@ -21,6 +21,15 @@
         <!-- <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
           <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"></i>
         </span> -->
+        <div>
+          <button nz-button nz-dropdown [nzDropdownMenu]="menu" nzPlacement="bottomRight">{{ 'language' | translate }}</button>
+          <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+              <li nz-menu-item (click)="selectLanguage('zh-CN')">简体中文</li>
+              <li nz-menu-item (click)="selectLanguage('en-US')">English</li>
+            </ul>
+          </nz-dropdown-menu>
+        </div>
       </div>
     </nz-header>
 
