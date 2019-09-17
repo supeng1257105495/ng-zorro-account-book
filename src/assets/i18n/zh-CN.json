@@ -1,4 +1,6 @@
 {
   "language": "中文",
-  "app_title": "Angular记账系统"
+  "app_title": "Angular记账系统",
+  "pay": "收入",
+  "income": "支出"
 }
