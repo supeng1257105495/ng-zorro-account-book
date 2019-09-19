@@ -9,13 +9,14 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 // 多语言国际化
 import { TranslateModule, TranslateLoader, TranslateService } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { DetailFormComponent } from './detail-form/detail-form.component';
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
   return new TranslateHttpLoader(httpClient);
 }
 
 @NgModule({
-  declarations: [RecordComponent],
+  declarations: [RecordComponent, DetailFormComponent],
   imports: [
     CommonModule,
     RecordRoutingModule,
