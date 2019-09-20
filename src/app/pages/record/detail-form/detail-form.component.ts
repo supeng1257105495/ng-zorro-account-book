@@ -23,8 +23,7 @@ export class DetailFormComponent implements OnInit {
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       userName: [null, [Validators.required]],
-      password: [null, [Validators.required]],
-      remember: [true]
+      password: [null, [Validators.required]]
     });
   }
 
