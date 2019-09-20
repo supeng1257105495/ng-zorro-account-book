@@ -1,21 +1,34 @@
-<form nz-form [nzLayout]="'inline'" [formGroup]="validateForm" (ngSubmit)="submitForm()">
+<form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input your username!">
       <nz-input-group nzPrefixIcon="user">
-        <input formControlName="userName" nz-input placeholder="Username" />
+        <input type="text" nz-input formControlName="userName" placeholder="Username" />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
+
   <nz-form-item>
     <nz-form-control nzErrorTip="Please input your Password!">
       <nz-input-group nzPrefixIcon="lock">
-        <input formControlName="password" nz-input type="password" placeholder="Password" />
+        <input type="password" nz-input formControlName="password" placeholder="Password" />
       </nz-input-group>
     </nz-form-control>
   </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control nzErrorTip="Please input your Password!">
+      <nz-input-group nzPrefixIcon="lock">
+        <input type="password" nz-input formControlName="password" placeholder="Password" />
+      </nz-input-group>
+    </nz-form-control>
+  </nz-form-item>
+
   <nz-form-item>
     <nz-form-control>
-      <button nz-button nzType="primary" [disabled]="!validateForm.valid">Log in</button>
+      <div class="form-box">
+        <button nz-button class="login-form-button" [nzType]="'primary'">提交</button>
+        <button nz-button class="login-form-button" [nzType]="'default'" (click)="resetForm($event)">重置</button>
+      </div>
     </nz-form-control>
   </nz-form-item>
 </form>
