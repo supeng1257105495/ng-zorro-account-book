@@ -8,6 +8,13 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class DetailFormComponent implements OnInit {
   validateForm: FormGroup;
+  basicOptions = [
+    { label: '衣', value: 1 },
+    { label: '食', value: 2 },
+    { label: '住', value: 3 },
+    { label: '行', value: 4 },
+    { label: '其他', value: 5 }
+  ];
 
   submitForm(): void {
     for (const i in this.validateForm.controls) {
@@ -22,8 +29,9 @@ export class DetailFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
-      password: [null, [Validators.required]]
+      price: [null, [Validators.required]],
+      date: [new Date(), [Validators.required]],
+      basicSelect: [null, [Validators.required]]
     });
   }
 

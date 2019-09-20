@@ -1,25 +1,24 @@
 <form nz-form [formGroup]="validateForm" class="login-form" (ngSubmit)="submitForm()">
   <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your username!">
-      <nz-input-group nzPrefixIcon="user">
-        <input type="text" nz-input formControlName="userName" placeholder="Username" />
-      </nz-input-group>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="price">金额</nz-form-label>
+    <nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="请输入金额!">
+      <input nz-input formControlName="price" id="price" />
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your Password!">
-      <nz-input-group nzPrefixIcon="lock">
-        <input type="password" nz-input formControlName="password" placeholder="Password" />
-      </nz-input-group>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="date">日期</nz-form-label>
+    <nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="请选择日期!">
+      <nz-date-picker formControlName="date" [nzStyle]="{ width: '100%' }"></nz-date-picker>
     </nz-form-control>
   </nz-form-item>
 
   <nz-form-item>
-    <nz-form-control nzErrorTip="Please input your Password!">
-      <nz-input-group nzPrefixIcon="lock">
-        <input type="password" nz-input formControlName="password" placeholder="Password" />
-      </nz-input-group>
+    <nz-form-label [nzSm]="4" [nzXs]="24" nzRequired nzFor="basicSelect">类型</nz-form-label>
+    <nz-form-control [nzSm]="20" [nzXs]="24" nzErrorTip="请选择支出类型!">
+      <nz-select style="width: 100%;" formControlName="basicSelect" nzAllowClear nzPlaceHolder="请选择支出类型！">
+        <nz-option [nzValue]="item.value" [nzLabel]="item.label" *ngFor="let item of basicOptions"></nz-option>
+      </nz-select>
     </nz-form-control>
   </nz-form-item>
 
