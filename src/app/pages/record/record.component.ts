@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import * as moment from 'moment';
 @Component({
   selector: 'app-record',
   templateUrl: './record.component.html',
@@ -9,30 +9,41 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RecordComponent implements OnInit {
   listOfData = [
     {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park'
+      date: '1',
+      type: 'John Brown',
+      price: 32,
+      member: 'New York No. 1 Lake Park',
+      remark: 'New York No. 1 Lake Park'
     },
     {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park'
+      date: '2',
+      type: 'John Brown',
+      price: 32,
+      member: 'New York No. 1 Lake Park',
+      remark: 'New York No. 1 Lake Park'
     },
     {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park'
+      date: '3',
+      type: 'John Brown',
+      price: 32,
+      member: 'New York No. 1 Lake Park',
+      remark: 'New York No. 1 Lake Park'
     }
   ];
+  listHeader = [
+    { label: 'date', value: '日期' },
+    { label: 'type', value: '分类' },
+    { label: 'price', value: '金额' },
+    { label: 'member', value: '成员' },
+    { label: 'remark', value: '备注' }
+  ];
+
   validateForm: FormGroup;
   constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.validateForm = this.fb.group({
-      userName: [null, [Validators.required]],
+      date: [moment(new Date()).format('L'), [Validators.required]],
       password: [null, [Validators.required]],
       remember: [true]
     });
