@@ -1,4 +1,6 @@
 {
   "language": "English",
-  "APP_TITLE": "Angular Billing System"
+  "app_title": "Angular Billing System",
+  "pay": "pay",
+  "income": "income"
 }

@@ -1,51 +1,77 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import * as moment from 'moment';
+
+export interface List {
+  id: number;
+  price: number;
+  date: string | Date;
+  basicType: string;
+}
 @Component({
   selector: 'app-record',
   templateUrl: './record.component.html',
   styleUrls: ['./record.component.less']
 })
 export class RecordComponent implements OnInit {
+  listHeader = [{ label: '金额', Value: 'price' }, { label: '日期', Value: 'date' }, { label: '类别', Value: 'basicType' }];
   listOfData = [
     {
-      date: '1',
-      type: 'John Brown',
-      price: 32,
-      member: 'New York No. 1 Lake Park',
-      remark: 'New York No. 1 Lake Park'
+      id: 0,
+      price: 122,
+      date: new Date(),
+      basicType: 'New York No. 1 Lake Park'
     },
     {
-      date: '2',
-      type: 'John Brown',
-      price: 32,
-      member: 'New York No. 1 Lake Park',
-      remark: 'New York No. 1 Lake Park'
+      id: 1,
+      price: 322,
+      date: new Date(),
+      basicType: 'London No. 1 Lake Park'
     },
     {
-      date: '3',
-      type: 'John Brown',
-      price: 32,
-      member: 'New York No. 1 Lake Park',
-      remark: 'New York No. 1 Lake Park'
+      id: 2,
+      price: 311,
+      date: new Date(),
+      basicType: 'Sidney No. 1 Lake Park'
     }
   ];
-  listHeader = [
-    { label: 'date', value: '日期' },
-    { label: 'type', value: '分类' },
-    { label: 'price', value: '金额' },
-    { label: 'member', value: '成员' },
-    { label: 'remark', value: '备注' }
+  basicOptions = [
+    { label: '衣', value: 1 },
+    { label: '食', value: 2 },
+    { label: '住', value: 3 },
+    { label: '行', value: 4 },
+    { label: '其他', value: 5 }
   ];
+  editCache: { [key: string]: any } = {};
 
-  validateForm: FormGroup;
-  constructor(private fb: FormBuilder) {}
+  constructor() {}
 
   ngOnInit() {
-    this.validateForm = this.fb.group({
-      date: [moment(new Date()).format('L'), [Validators.required]],
-      password: [null, [Validators.required]],
-      remember: [true]
+    this.updateEditCache();
+  }
+
+  updateEditCache(): void {
+    this.listOfData.forEach(item => {
+      this.editCache[item.id] = {
+        edit: false,
+        data: { ...item }
+      };
     });
+  }
+
+  startEdit(id: string): void {
+    this.editCache[id].edit = true;
+  }
+
+  saveEdit(id: string): void {
+    const index = this.listOfData.findIndex(item => Number(item.id) === Number(id));
+    Object.assign(this.listOfData[index], this.editCache[id].data);
+    this.editCache[id].edit = false;
+  }
+
+  cancelEdit(id: string): void {
+    const index = this.listOfData.findIndex(item => Number(item.id) === Number(id));
+    this.editCache[id] = {
+      data: { ...this.listOfData[index] },
+      edit: false
+    };
   }
 }
