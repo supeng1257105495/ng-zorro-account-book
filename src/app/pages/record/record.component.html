@@ -34,7 +34,7 @@
 
             <td>
               <ng-container *ngIf="!editCache[data.id]?.edit; else dateInputTpl">
-                {{ data.date }}
+                {{ data.date | date: 'yyyy-MM-dd' }}
               </ng-container>
               <ng-template #dateInputTpl>
                 <nz-date-picker [(ngModel)]="editCache[data.id].data.date" [nzStyle]="{ width: '100%' }"></nz-date-picker>
